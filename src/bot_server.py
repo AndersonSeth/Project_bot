@@ -42,7 +42,7 @@ def solicitar():
 
     if tipo == "motoboy":
         destinatario = "anderson.silva@bshlaw.com.br"
-        assunto = "Nova Solicitação de Motoboy"
+        assunto = "Nova Solicitação de Motoboys"
     elif tipo == "correios":
         destinatario = "anderson.silva@bshlaw.com.br"
         assunto = "Nova Solicitação de Envio aos Correios"
