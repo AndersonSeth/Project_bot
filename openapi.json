@@ -1,0 +1,106 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API de Solicitações Internas",
+      "description": "API para solicitar motoboy, correios e manutenção, acionando notificações por e-mail.",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "https://project-bot-4qkf.onrender.com",
+        "description": "Servidor Flask hospedado no Render"
+      }
+    ],
+    "paths": {
+      "/solicitacao": {
+        "post": {
+          "summary": "Envia uma solicitação de motoboy, correios ou manutenção",
+          "operationId": "solicitarServico",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "tipo": {
+                      "type": "string",
+                      "description": "Tipo de solicitação (motoboy, correios, manutenção)"
+                    },
+                    "info": {
+                      "type": "string",
+                      "description": "Informações adicionais sobre a solicitação"
+                    }
+                  },
+                  "required": ["tipo", "info"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Solicitação processada com sucesso",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "example": "success"
+                      },
+                      "message": {
+                        "type": "string",
+                        "example": "Solicitação enviada com sucesso!"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Erro na solicitação, dados inválidos",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "example": "error"
+                      },
+                      "message": {
+                        "type": "string",
+                        "example": "Dados inválidos ou falta de informações."
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Erro interno no servidor",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "example": "error"
+                      },
+                      "message": {
+                        "type": "string",
+                        "example": "Erro interno ao processar a solicitação."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
