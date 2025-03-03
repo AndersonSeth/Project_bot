@@ -12,7 +12,7 @@
       }
     ],
     "paths": {
-      "/solicitacao": {
+      "/solicitar": {
         "post": {
           "summary": "Envia uma solicitação de motoboy, correios ou manutenção",
           "operationId": "solicitarServico",
